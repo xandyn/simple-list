@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import noop from 'lodash/noop';
 import { Formik, Field, Form as FormikForm, FormikActions, ErrorMessage } from 'formik';
-import { Form } from 'react-bootstrap';
+import { Form, ButtonToolbar } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Product, ProductDraft } from 'models';
 import { Modal } from 'shared';
@@ -70,7 +70,9 @@ export class ProductModal extends React.Component<Props, State> {
       color: product ? product.color : ''
     };
     const toggleButton = identity.isAuthenticated ? product ? (
-      <Button variant="outline-primary" onClick={this.onOpen}>Edit</Button>
+      <ButtonToolbar>
+        <Button variant="primary" onClick={this.onOpen}>Edit Product</Button>
+      </ButtonToolbar>
     ) : (
       <Button variant="primary" onClick={this.onOpen}>Add Product</Button>
     ) : null;
